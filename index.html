@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script> 
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script> 
+    <link x rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link x rel="stylesheet" href="style.css">
+</head>
+<body>
+ <script >  
+  const firebaseConfig = {
+    apiKey: "AIzaSyDJLZKLmZKYhFreUyrshuIL5DiFBVnKOUM",
+    authDomain: "mika-3d3c5.firebaseapp.com",
+    projectId: "mika-3d3c5",
+    storageBucket: "mika-3d3c5.appspot.com",
+    messagingSenderId: "700524518330",
+    appId: "1:700524518330:web:caf92808c569dc9339db83",
+    measurementId: "G-GX8RX8FKDB"
+  }; 
+  firebase.initializeApp(firebaseConfig); 
+</script>
+ <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fa-solid fa-turn-up up"></i></button>
+   
+    <nav class="navbar navbar-expand-lg navbar-light bg-light mynav mynav1">
+        <img src="data:image/webp;base64,UklGRrQFAABXRUJQVlA4TKgFAAAvdcAKEA8Ht7Zt1cra5937DbfsR1AAIf03o+nXq7sNiI0kKZKiZvbwwX87mbsgR7atWln7XPmCu9uUDMg/AVKwoTvcV/duyLVtt062gm1yznThGZUxYkRd9EAROeegj74UACWYW/0cxp/Vn2aOubChfE76XzfzpR2wgKQ9/9vs5i3FyJu6Dn3fTl2KErTOTcEVqcSCQMTCABMcK5K4VUlXG2RyrSyqu/wYPviwDAdi0pr1NANaq/LT1cIwoRSXyqmbTvPr0OZaGqiggx/QjQgK2AKZ8gc9CJFQQTUq/Cv8g2+jQaPQwLcRKUmI8BrIRgfrQgOXRgCBkEAC3yqfLEb43WWg+iN8C4mQjGgE4c00kP6l0ica0TshLwj8k11GI8DrsWmauGartDjZdB+b2fziPae+Us6N5rAwbJwSQCC9KyAGN64W/xfX7K4osczEjRt/XpHdOCbeUdh0R0IJYID2wMQoilfm5AZ1whQREd1IcKA0IZJg4ho0F6/P7ZHxlfWgcx3W81Q5/pZmey3/UdazdhJt85usn2WGLkEEwdYZMGzzbZcsZVD/bJLcmNyk+dqDVUsTFClB/6ue9550FO8i7z1Ob0R+dlfDY87o4C9hOaODcovKy0k95sfnurHNqv/vbD3X8jn7cGXfJubK02q0b22+vj0/LhmoXdumNm6mzOxyl8rMjBOOUkVhJq28JamkkBpVebNZcFNmpgWXmZk5qJRT7m/RaMb2yt/fJ6L/EyCMV6xZPGci8dzFa5aLprly0SjSHbVwZVO4fh6Zz7uh8G6cQ7Xlm4rtmktRa766wDZPRz15c1GtmkT6F5lg0qpi2m4q6Z93ZK8Jpm1XSJ2kf/GBbZ/1mGBtEV1F2mefVOL2Iw4/8UIDXFk86Xi980vMbS18THWdwfjVjedQuT7dMDyvxO0tRw1XsU4P3UWTjlb99Y/63xK3tXy9NzPvtSfwe55cXYvEdyQBsJ0R0A31vjuq/y99923rF7vnbqvkoMss9UhzBMw22n+/HXfb4z+N6i05U41ii2B5UQgEnt14my41YubddtfcVkVFdelWg0QSyqKudbqW6oeKAtca2IRQjKDORkBF0akXEHwxkmZmfv6N+YAdNHfeVfPvP/mPKiqZJXoWWWweezZBzghNXIAVadkmWG6SmZz5dXvDnXbR36cKVAiYrRUTfDOPcgO9gOCKbCxJHTDzhAZBhTBBywdiM0d6IXMkCYlOQHBFNpZkR4IjGzIRfFmjoEJjt+iUCcLcS0Q2JPgaEeAKpUUOZ1OLXMFjGgaVMULXq0m+RV5eLMkWyghIFByQZJ7fOLhVq1wXh5ycWJKdqlxyhDokxDy1gR4zSWsRB+UZjqQ8V5KdCrVD2iEvIOCCo783/OYr/S9PUN2vFRAis8ii3BxJ8EWtriLgnJJpR4vhYarbtRKCaxQQrHIUJsLJK7tAoOEK7ZvHNc7rWuwQYhNJM1ipk9qEQDWDbD2eDJzbGE/8oBcSrFQvJoQqqSFSmxAofEKi1wX88vZbup+cglNPO/197fcUdwhDj2CFOamniBQudDi1CVEmlWSnKj8UzFvHEHoGqpofnsxnnHlW1fzpV0zYJcDxQyBwCYJZkgyY4xnS0uJYkoyZmX2CHaQCgUMZvoKA/oH63SvMfUn5jmCOSB04ehxLkjEzs0e5VpL5EQT0DGQ+/Rw4/iAcfMihxzLzm1pPvlwDToMZFgGOF3IWMyTJGTGbcCxJxszMoWsR5IxAqJdeQkDPQBU4rqTsaFG+o/WGKOAuAtA3VJcHRSHPIgA9A3V4aH0xpZcTgJ6Bdz9QfvSxspr/6GuioDdNIQD9A9XaPvyqKOyf1hKAnoGa3LdRFPmyOQT0DJg9c7co+uvmEXoGDAbveVE0wZULR/UP6Dxy5wbRLJff9pTi8Qfuekk01fXPPvf8C6LoAQ==" alt="">
+        <button class="navbar-toggler tog" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+         <span class="menu">MENU</span> <span class="navbar-toggler-icon xy"></span>
+        </button>
+      <a href=""></a>
+        <div class="collapse navbar-collapse ss" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto respul">
+            <li class="nav-item active gg">
+              <a class="nav-link " href="#"><span class="x">Home</span>  <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item gg">
+              <a class="nav-link " href="#"><span class="x">Products</span></a>
+            </li>
+            <li class="nav-item gg">
+                <a class="nav-link " href="#"><span class="x">About</span> </a>
+            </li>
+            <li class="nav-item dropdown gg ">
+              <a class="nav-link  dropdown-toggle v1" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+               <span class="x ">Blog <span class="plusmin"></span></span> 
+              </a>
+              <div class="dropdown-menu dropie" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Blog</a>
+                <a class="dropdown-item" href="#">Blog Details</a>
+                <a class="dropdown-item" href="#">Element</a>
+              </div>
+            </li>
+            <li class="nav-item gg">
+              <a class="nav-link"><span class="x">Contacts</span> </a>
+            </li>
+          </ul>
+          
+            
+          <form class="form-inline my-2 my-lg-0 none">
+              <i></i>
+              <span class="sp28"><i class="fa-solid fa-phone phone"></i> +10 (56) 745 3095</span>
+              <button class="bt1">Order Online</button>
+          </form>
+        </div>
+      </nav>
+      <!-- dasawyisi ra karoche -->
+      <div class="starter">
+
+        <div class="left">
+
+          <div class="leftsidechild">
+
+          <div class="delopdiv">
+
+          <h1 class="delopacity">Delicious</h1>
+
+        </div>
+
+          <h1 class="delbold">Delicious Cake for Everyone</h1>
+
+          <span class="sp90">Nulla atque voluptates nobis praesentium fuga exercitationem illum veritatis autem.</span>
+
+          <div class="btdiv">
+
+          <button class="bt1 expnow">Explore Now</button></div> </div>      
+
+        </div>
+
+       
+
+      </div>
+      <!-- ak gavichede xval unda davubrunde -->
+
+      <span class="p12">Most Popular</span>
+        <span class="sp29">Our Exclusive Cakes</span>
+        
+      <div class="owl-carousel owl-theme owl2">
+ 
+         
+    </div>
+    <!-- Fresh And Delicious -->
+    <div class="freshAndDelicious">
+      <div class="absimg">
+      <img src="img/cakeabsoluteimg.png" alt="" class="img3"></div>
+    </div>
+    <!-- Our Features -->
+    <div class="Our_Features">
+      <div class="fetmoth">
+      <h4 class="ourfetspan">Our Features</h4>
+      <h1 class="fet">Quality is Our First Priority</h1>
+      </div>
+      <div class="featurecards">
+        <!-- <div class="txt_moth">
+          <span class="p12">Most Popular</span>
+        <span class="sp29">Our Exclusive Cakes</span> -->
+        </div>
+         
+      </div>
+      <!-- video -->
+      <div class="video">
+        <div class="containervideo"></div>
+          <div class="videoicondiv">
+
+            <i class="fa fa-play" style="font-size:20px;"></i>
+          </div>
+        
+      </div>
+      
+    </div>
+    <div class="vid">
+      <i class="fa-solid fa-xmark xoki"></i>
+      <iframe width="100%" height="100%"
+src="https://www.youtube.com/embed/tgbNymZ7vqY">
+</iframe>
+    </div>
+    <!-- kide karuseli -->
+    <span class="p12">Testimonial</span>
+    <span class="sp29">What Customers Say</span>
+    
+    <div class="owl-carousel owl-theme carousel2">
+
+       
+  </div>
+
+
+  <div class="owl-carousel owl-theme carousel3">
+    <div class="item itemm">
+    <div class="motherof"> 
+        <i class="fa-brands fa-instagram k"></i>
+        <img src="img/c1.webp" alt="">
+    </div>
+    </div>
+    <div class="item itemm">
+    <div class="motherof">   
+        <i class="fa-brands fa-instagram k"></i> 
+        <img src="img/c4.png" alt="">
+    </div>
+    </div>
+    <div class="item itemm">
+    <div class="motherof"> 
+        <i class="fa-brands fa-instagram k"></i>
+        <img src="img/c6.png" alt="">
+    </div>
+    </div>
+    <div class="item itemm">
+        <div class="motherof">  
+            <i class="fa-brands fa-instagram k"></i>
+        <img src="img/c5.png" alt="" >
+    </div>  
+    </div> 
+</div>
+
+    <!-- footer -->
+    <footer>
+      <div class="footerdivs">
+        <div class="leftfot"> 
+          <div class="foticon">
+            <img src="footicon/logo.webp" alt="" class="img4">
+          </div>
+          <p class="p3">Land behold it created good saw after she'd Our set living. Signs midst dominion creepeth morning laboris nisi ufsit aliquip.</p>
+          <div class="leftfotsocmediadiv">
+            
+          </div>
+        </div>
+        <div class="leftmidfot">
+          <h4>Quick Links</h4>
+          
+        </div>
+        <div class="rightmidfot">
+          <h4>Cakes</h4>
+           
+        </div>
+        <div class="rightfot">
+          <h4 class="h22">Contact Us</h4> 
+           
+        </div>
+      </div>
+      <div class="copyrightdiv">
+        <span class="sp27">Copyright ©2022 All rights reserved | This template is made with <i class="fa-solid fa-heart heart"></i> by Colorlib</span>
+      </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="index.js"></script>
+    <script >
+      $('.owl2').owlCarousel({
+    loop:true,
+    margin:10,
+    nav:true,
+    responsive:{
+        0:{
+            items:1
+        },
+        300:{
+          items:1
+        },
+        600:{
+            items:2
+        },
+        1000:{
+            items:3
+        }
+    }
+})
+$('.carousel2').owlCarousel({
+    loop:true,
+    margin:10,
+    nav:true,
+    responsive:{
+        0:{
+            items:1
+        },
+        300:{
+          items:1
+        },
+        600:{
+            items:2
+        },
+        1000:{
+            items:2
+        }
+    }
+})
+$('.carousel3').owlCarousel({
+        loop:true,
+        margin:0,
+        nav:false,
+        responsive:{
+            0:{
+                items:2
+            },
+            600:{
+                items:3
+            },
+            1000:{
+                items:5
+            }
+        }
+    })
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+</html>
